@@ -11,7 +11,7 @@
 pred_disps,_ = stereonet(data['im2'],data['im3'],data['im2_mono'],data['im3_mono'], args.iters, True)
 ```
 7. I wanted to see the outputs of the program, so I made a outputs folder to include as an argument. Since I was using the ETH3D dataset, I also created a eth3d subfolder of outputs.
-8. I ran the program as follows:
+8. I ran the program as follows: (note that devices 1,2,3,4 were available at the time I was running it; replace these as necessary)
 ```
-CUDA_VISIBLE_DEVICES=1,2,3,4 python test.py --datapath /home/walkosj/repos/stereoanywhere/datasets/eth3d/ --dataset eth3d --stereomodel stereoanywhere --loadstereomodel /home/walkosj/repos/stereoanywhere/weights/sceneflow.tar --monomodel DAv2 --loadmonomodel /home/walkosj/repos/stereoanywhere/weights/depth_anything_v2_vitb.pth --iscale 1 --oscale 1 --normalize --iters 32 --vol_n_masks 8 --n_additional_hourglass 0 --use_aggregate_mono_vol --vol_downsample 0 --mirror_conf_th 0.98  --use_truncate_vol --mirror_attenuation 0.9
+CUDA_VISIBLE_DEVICES=1,2,3,4 python test.py --datapath /home/<user>/repos/stereoanywhere/datasets/eth3d/ --dataset eth3d --stereomodel stereoanywhere --loadstereomodel /home/<user>/repos/stereoanywhere/weights/sceneflow.tar --monomodel DAv2 --loadmonomodel /home/<user>/repos/stereoanywhere/weights/depth_anything_v2_vitb.pth --iscale 1 --oscale 1 --normalize --iters 32 --vol_n_masks 8 --n_additional_hourglass 0 --use_aggregate_mono_vol --vol_downsample 0 --mirror_conf_th 0.98  --use_truncate_vol --mirror_attenuation 0.9 --outdir /home/<user>/repos/stereoanywhere/outputs/eth3d/
 ```
