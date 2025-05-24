@@ -211,7 +211,7 @@ def run(data):
     with autocast(autocast_device, enabled=args.mixed_precision):
 
         if args.stereomodel in ['stereoanywhere']:
-            pred_disps,_ = stereonet(data['im2'],data['im3'],data['im2_mono'],data['im3_mono'],test_mode=True, iters=args.iters)
+            pred_disps,_ = stereonet(data['im2'],data['im3'],data['im2_mono'],data['im3_mono'], args.iters, True)
         elif args.stereomodel == 'skip_pred':
             pred_disps = torch.zeros_like(data['im2'])
         else:
